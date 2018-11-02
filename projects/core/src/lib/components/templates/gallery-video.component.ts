@@ -4,9 +4,7 @@ import { Component, Input, OnInit, ViewChild, ElementRef, ChangeDetectionStrateg
   selector: 'gallery-video',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <video #video controls poster="{{poster}}" (error)="error.emit($event)">
-      <source *ngFor="let src of videoSources" src="{{src?.url}}" type="{{src?.type}}"/>
-    </video>
+    <video #video controls poster="{{poster}}" (error)="error.emit($event)" src="{{src[0].url}}"></video>
   `
 })
 export class GalleryVideoComponent implements OnInit {
